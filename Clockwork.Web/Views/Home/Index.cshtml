@@ -1,0 +1,21 @@
+﻿<script>
+function UserAction() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("output").innerHTML = this.responseText;
+        }
+    };
+    xhttp.open("GET", "http://127.0.0.1:5000/api/currenttime", true);
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.send();
+
+}
+</script>
+
+<h2>AWH Clockwork Project @ViewData["Version"] on @ViewData["Runtime"]!</h2>
+
+
+<button type="submit" onclick="UserAction()">Get the time</button>
+
+<p id="output"></p>
