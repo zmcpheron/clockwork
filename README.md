@@ -4,7 +4,7 @@ Welcome to the onboarding project for AWH!
 
 This repo contains one solution with two projects.  It is targeted for C# and Javascript deveopers.  
 ####Project Clockwork.API####
-Clockwork.API is a simple api that returns a time date object and records the IP address, and timeate of any callers to the API in a SQLite database.
+Clockwork.API is a simple api that returns a time date object and records the IP address, and timedate of any callers to the API in a SQLite database.
 
 ####Project Clockwork.Web####
 Clockwork.Web is a simple website that uses javascript to call the API at the push of a button and displays the result JSON object.
