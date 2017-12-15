@@ -40,5 +40,7 @@ Once you have a running project that works as intended, you will be asked to mak
 
 ### Additional Resources ###
 [Getting Started with EF Core on .NET Core Console App with a New database](https://docs.microsoft.com/en-us/ef/core/get-started/netcore/new-db-sqlite)
+
 [EF Core .NET Command-line Tools](https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/dotnet)
+
 [Migrations - EF Core with ASP.NET Core MVC](https://docs.microsoft.com/en-us/aspnet/core/data/ef-mvc/migrations#introduction-to-migrations)
