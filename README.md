@@ -23,7 +23,7 @@ Once you have a running project that works as intended, you will be asked to mak
 
 ### How do I get set up? ###
 
-* Install Visual Studio if you do not have it set up.
+* Install Visual Studio Community 2017 or Visual Studio Code if you do not have it set up.  Note that Visual Studio 2015 will not work with this project.
 * Clone this repo.
 * Change local configurations that may need changed for your environment.
 * Check CORS access.
@@ -37,3 +37,8 @@ Once you have a running project that works as intended, you will be asked to mak
 ### Who do I talk to? ###
 
 * For this repo, questions on direction, scope, or intent can be directed to robin.walters@awh.net
+
+### Additional Resources ###
+[Getting Started with EF Core on .NET Core Console App with a New database](https://docs.microsoft.com/en-us/ef/core/get-started/netcore/new-db-sqlite)
+[EF Core .NET Command-line Tools](https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/dotnet)
+[Migrations - EF Core with ASP.NET Core MVC](https://docs.microsoft.com/en-us/aspnet/core/data/ef-mvc/migrations#introduction-to-migrations)
