@@ -1,16 +1,15 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc;
 using Clockwork.API.Models;
-using System.Linq;
-using System.Collections.Generic;
 
 namespace Clockwork.API.Controllers
 {
     [Route("api/[controller]")]
     public class CurrentTimeController : Controller
-    {    
-        [HttpGet("getCurrentTime")]        
-        public IActionResult GetCurrentTime()
+    {
+        // GET api/currenttime
+        [HttpGet]
+        public IActionResult Get()
         {
             var utcTime = DateTime.UtcNow;
             var serverTime = DateTime.Now;
@@ -34,19 +33,6 @@ namespace Clockwork.API.Controllers
                 {
                     Console.WriteLine(" - {0}", CurrentTimeQuery.UTCTime);
                 }
-            }
-
-            return Ok(returnVal);
-        }
-
-        [HttpGet("getAllRequestEntries")]
-        public IActionResult GetAllRequestEntries()
-        {
-            List<CurrentTimeQuery> returnVal;
-
-            using (var db = new ClockworkContext())
-            {
-                returnVal = db.CurrentTimeQueries.ToList();
             }
 
             return Ok(returnVal);
