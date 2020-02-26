@@ -1,23 +1,93 @@
-﻿body {
-    font-size: 3vw !important;
-    text-align: center;
-    font-family: 'Global User Interface';
-}
-
-h2 {
-    font-size: 4vw !important;
+﻿h2 {
     font-weight: bold !important;
 }
 
-button {
-    font-size: 3vw !important;  
+li {
+    display: inline-block !important;
+    width:100%;
 }
 
-p {
-    font-size: 4vw;
-    text-align: center;
+.list-border {
+    width: 80vw;
+    margin-left: 10vw;
+    border: 1vw solid #808080;    
+}
+
+.border-top {
+    border-top: 1vw solid #808080;
+}
+
+.border-bottom {
+    border-bottom: 1vw solid #000000;
+}
+
+.pad-top {
+    padding-top: 1em;
 }
 
 .pad-bot {
-    padding-bottom: 3vh;
+    padding-bottom: 1em;
+}
+
+.fixed-height {
+    height: 4em;
+}
+
+.list-title {
+    height: 2em;
+    margin-top: 1em; 
+    margin-bottom: 1em;
+}
+
+#outputCurrentTimeRequest {
+    color: green;
+}
+
+#timeZoneSelect {
+    width: 40vw;
+    height: 6vw;    
+}
+
+#allTimeRequestsList {
+    margin-left: 20vw;
+    width: 60vw;
+}
+
+p,
+h2 {
+    font-size: 4vw !important;
+}
+
+body,
+button,
+#timeZoneSelect {
+    font-size: 3vw !important;
+}
+
+@media screen and (min-width: 600px){  
+
+    #timeZoneSelect {
+        height: 2em;
+        max-width: 300px;
+    }
+
+    .border-bottom {
+        border-bottom: 1px solid #000000;
+    }
+
+    #allTimeRequestsList {
+        margin-left: 25vw;
+        width: 50vw;
+    }
+
+    p,
+    h2 {
+        font-size: 1.75em !important;
+    }
+
+    body,
+    button,
+    #timeZoneSelect {
+        font-size: 1.25em !important;
+    }  
 }

@@ -30,6 +30,8 @@ namespace Clockwork.API.Migrations
 
                     b.Property<DateTime>("UTCTime");
 
+                    b.Property<string>("TimeZoneId");
+
                     b.HasKey("CurrentTimeQueryId");
 
                     b.ToTable("CurrentTimeQueries");

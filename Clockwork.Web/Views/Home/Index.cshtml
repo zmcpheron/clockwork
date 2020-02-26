@@ -10,10 +10,25 @@
 
 <h2>AWH Clockwork Project @ViewData["Version"] on @ViewData["Runtime"]!</h2>
 
-<body>
-    <div class="row text-center">
-        <button type="submit" class="btn btn-primary" onclick="UserAction()">Get the time</button>
+<body class="text-center">   
+    <div class="container-fluid pad-top">
+        <div class="row justify-content-center">
+            <select id="timeZoneSelect"></select>
+        </div>
+        <div class="row justify-content-center pad-top">
+            <button type="submit" class="btn btn-primary" onclick="UserAction()">Get the time</button>
+        </div>
+        <div class="row pad-top border-bottom">
+            <p class="pad-bot fixed-height text-center" id="outputCurrentTimeRequest"></p>
+        </div>
+        <div class="row pad-top">            
+            <div class="row text-center list-title">
+                <h2> All Requested Times </h2>
+            </div>
+            <div class="pad-top">
+                <ul class="list-group text-center" id="allTimeRequestsList"> No Requests </ul>
+            </div>
+            
+        </div>
     </div>
-    <p id="outputCurrentTimeRequest" class="pad-bot"></p>
-    <p id="outputAllTimeRequests"></p>
 </body>
