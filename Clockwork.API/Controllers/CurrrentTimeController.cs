@@ -10,17 +10,19 @@ namespace Clockwork.API.Controllers
     public class CurrentTimeController : Controller
     {    
         [HttpGet("getCurrentTime")]        
-        public IActionResult GetCurrentTime()
-        {
+        public IActionResult GetCurrentTime(string timeZoneId)
+        {            
             var utcTime = DateTime.UtcNow;
-            var serverTime = DateTime.Now;
-            var ip = this.HttpContext.Connection.RemoteIpAddress.ToString();
+            var serverTime = DateTime.Now;          
+            var requestedTime = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(serverTime, timeZoneId);
+            var ip = this.HttpContext.Connection.RemoteIpAddress.ToString();          
 
             var returnVal = new CurrentTimeQuery
             {
                 UTCTime = utcTime,
                 ClientIp = ip,
-                Time = serverTime
+                Time = requestedTime,
+                TimeZoneId = timeZoneId
             };
 
             using (var db = new ClockworkContext())
@@ -36,6 +38,9 @@ namespace Clockwork.API.Controllers
                 }
             }
 
+            //Leverage the ID field to hold user-friendly display name
+            returnVal.SetTimeZoneIdToDisplayName();
+
             return Ok(returnVal);
         }
 
@@ -47,6 +52,30 @@ namespace Clockwork.API.Controllers
             using (var db = new ClockworkContext())
             {
                 returnVal = db.CurrentTimeQueries.ToList();
+
+                //Leverage the ID field to hold user-friendly display name
+                foreach (CurrentTimeQuery ctq in returnVal)
+                {
+                    ctq.SetTimeZoneIdToDisplayName();
+                }
+            }
+
+            return Ok(returnVal);
+        }
+
+        [HttpGet("getAvailableTimeZones")]
+        public IActionResult GetAvailableTimeZones()
+        {
+            //Return a list of all timezones available to the server (Id and DisplayName)
+            IReadOnlyCollection<TimeZoneInfo> availableTimeZones = TimeZoneInfo.GetSystemTimeZones();
+            TimeZoneInfo localTZI = TimeZoneInfo.Local;
+
+            List<TimeZoneOption> returnVal = new List<TimeZoneOption>();
+
+            //Set isLocal to true for local timezone
+            foreach(TimeZoneInfo tzi in availableTimeZones)
+            {
+                returnVal.Add(new TimeZoneOption(tzi.Id, tzi.DisplayName, localTZI.Id == tzi.Id ? true : false));
             }
 
             return Ok(returnVal);
